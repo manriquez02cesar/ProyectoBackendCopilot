@@ -1,10 +1,18 @@
 package com.academia.batch.model;
 
-// Modelo usado en el Step 1: representa un estudiante leido del CSV
+// Clase modelo Estudiante con los campos: nombre (String), grupo (String),
+// nota1, nota2, nota3 y promedio (todos double).
+// Incluye constructor vacio, getters y setters de todos los campos,
+// y un toString que muestre nombre, grupo y promedio.
+
 public class Estudiante {
 
     private String nombre;
+    private String apellido;
+    private String email;
     private String grupo;
+    private String curso;
+    private Double calificacion;
     private double nota1;
     private double nota2;
     private double nota3;
@@ -13,26 +21,113 @@ public class Estudiante {
     public Estudiante() {
     }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public Estudiante(String nombre, String apellido, String email, String curso, Double calificacion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.curso = curso;
+        this.calificacion = calificacion;
+    }
 
-    public String getGrupo() { return grupo; }
-    public void setGrupo(String grupo) { this.grupo = grupo; }
+    public Estudiante(String nombre, String apellido, String email, String curso, Double calificacion,
+                      double nota1, double nota2, double nota3, double promedio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.curso = curso;
+        this.calificacion = calificacion;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        this.promedio = promedio;
+    }
 
-    public double getNota1() { return nota1; }
-    public void setNota1(double nota1) { this.nota1 = nota1; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public double getNota2() { return nota2; }
-    public void setNota2(double nota2) { this.nota2 = nota2; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public double getNota3() { return nota3; }
-    public void setNota3(double nota3) { this.nota3 = nota3; }
+    public String getApellido() {
+        return apellido;
+    }
 
-    public double getPromedio() { return promedio; }
-    public void setPromedio(double promedio) { this.promedio = promedio; }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public Double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(Double calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public double getNota1() {
+        return nota1;
+    }
+
+    public void setNota1(double nota1) {
+        this.nota1 = nota1;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
+    }
+
+    public double getNota3() {
+        return nota3;
+    }
+
+    public void setNota3(double nota3) {
+        this.nota3 = nota3;
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
 
     @Override
     public String toString() {
-        return nombre + " | Grupo: " + grupo + " | Promedio: " + promedio;
+        return "Estudiante{" +
+                "nombre='" + nombre + '\'' +
+                ", grupo='" + curso + '\'' +
+                ", promedio=" + promedio +
+                '}';
     }
 }

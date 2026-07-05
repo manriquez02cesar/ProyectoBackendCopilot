@@ -1,21 +1,25 @@
 package com.academia.batch.processor;
 
+// Processor de Spring Batch que implementa ItemProcessor<Estudiante, Estudiante>.
+// En el metodo process: calcula el promedio como (nota1 + nota2 + nota3) / 3,
+// asigna el promedio al estudiante con setPromedio, registra un log con SLF4J
+// "Step 1 - Procesando: {estudiante}" y devuelve el estudiante.
+
 import com.academia.batch.model.Estudiante;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
-// Step 1 - Processor: calcula el promedio del estudiante leido del CSV
 public class EstudianteProcessor implements ItemProcessor<Estudiante, Estudiante> {
 
-    private static final Logger log = LoggerFactory.getLogger(EstudianteProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger(EstudianteProcessor.class);
 
     @Override
-    public Estudiante process(Estudiante estudiante) {
+    public Estudiante process(Estudiante estudiante) throws Exception {
         double promedio = (estudiante.getNota1() + estudiante.getNota2() + estudiante.getNota3()) / 3;
         estudiante.setPromedio(promedio);
-
-        log.info("Step 1 - Procesando: {}", estudiante);
+        logger.info("Step 1 - Procesando: {}", estudiante);
         return estudiante;
     }
+
 }

@@ -16,20 +16,45 @@ public class EstudianteReporte {
     public EstudianteReporte() {
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getGrupo() { return grupo; }
-    public void setGrupo(String grupo) { this.grupo = grupo; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public double getPromedio() { return promedio; }
-    public void setPromedio(double promedio) { this.promedio = promedio; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     @Override
     public String toString() {
