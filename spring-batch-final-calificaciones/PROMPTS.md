@@ -33,7 +33,7 @@ Al validar el código generado por Copilot nos damos cuenta que cumple con los r
 
 ##  Generar ReporteEstudianteProcessor (lógica del Step 2)
 ### PROMPT:
-Actua como desarrollador Jr. y crea un documento Processor que implementa ItemProcessor<Estudiante, EstudianteReporte>. Convierte un Estudiante en un EstudianteReporte copiando nombre, grupo y promedio y asigna estado "APROBADO" si el promedio es >= 70, o "REPROBADO" si es menor. Loguea "Step 2 - Reporte: {reporte}" y devuelve el reporte.
+`Actua como desarrollador Jr. y crea un documento Processor que implementa ItemProcessor<Estudiante, EstudianteReporte>. Convierte un Estudiante en un EstudianteReporte copiando nombre, grupo y promedio y asigna estado "APROBADO" si el promedio es >= 70, o "REPROBADO" si es menor. Loguea "Step 2 - Reporte: {reporte}" y devuelve el reporte.`
 ![img_6.png](img_6.png)
 Se muestra como copilot se comporta como un asistente al generar el documento solicitado.
 ![img_7.png](img_7.png)
@@ -57,6 +57,16 @@ Podemos observar como en ambas imagenes Copiltot nos genera el código con un pa
 en, corregí comparando con el proyecto de clase.
 ![img_8.png](img_8.png)
 ![img_9.png](img_9.png)
+
+## Recursos: application.properties , tabla MySQL y CSV
+### PROMPT:
+`Genera un application.properties para Spring Boot que se conecte a MySQL en
+jdbc:mysql://localhost:3306/academia (usuario alumno, password alumno123), inicialice el esquema de Spring
+Batch siempre, ejecute el Job al arrancar, y se conecte a MongoDB en
+mongodb://root:root123@localhost:27018/academia?authSource=admin.
+`![img_10.png](img_10.png)
+Como se puede observar en la imagen, Copilot nos genera el archivo application.properties pero hay algunos datos que no puede adivinar copilot y son unicos como el puerto de MongoDB
+
 
 
 
