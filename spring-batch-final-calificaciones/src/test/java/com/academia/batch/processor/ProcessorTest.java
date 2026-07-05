@@ -1,43 +1,51 @@
 package com.academia.batch.processor;
 
 import com.academia.batch.model.Estudiante;
-import com.academia.batch.model.EstudianteReporte;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProcessorTest {
 
     @Test
-    void calculaElPromedioCorrectamente() {
-        Estudiante e = new Estudiante();
-        e.setNota1(80);
-        e.setNota2(90);
-        e.setNota3(100);
+    void computesAverageForTypicalScores() throws Exception {
+        Estudiante estudiante = new Estudiante();
+        estudiante.setNota1(80);
+        estudiante.setNota2(90);
+        estudiante.setNota3(100);
 
-        Estudiante resultado = new EstudianteProcessor().process(e);
+        Estudiante resultado = new EstudianteProcessor().process(estudiante);
 
-        // (80 + 90 + 100) / 3 = 90
-        assertEquals(90.0, resultado.getPromedio(), 0.001);
+        assertEquals(90.0, resultado.getPromedio(), 0.0001);
     }
 
     @Test
-    void marcaAprobadoCuandoElPromedioEsAlMenos70() {
-        Estudiante e = new Estudiante();
-        e.setPromedio(70);
+    void computesAverageWhenAllScoresAreZero() throws Exception {
+        Estudiante estudiante = new Estudiante();
+        estudiante.setNota1(0);
+        estudiante.setNota2(0);
+        estudiante.setNota3(0);
 
-        EstudianteReporte reporte = new ReporteEstudianteProcessor().process(e);
+        Estudiante resultado = new EstudianteProcessor().process(estudiante);
 
-        assertEquals("APROBADO", reporte.getEstado());
+        assertEquals(0.0, resultado.getPromedio(), 0.0001);
     }
 
     @Test
-    void marcaReprobadoCuandoElPromedioEsMenorA70() {
-        Estudiante e = new Estudiante();
-        e.setPromedio(69.9);
+    void computesAverageForDecimalScores() throws Exception {
+        Estudiante estudiante = new Estudiante();
+        estudiante.setNota1(70.5);
+        estudiante.setNota2(80.25);
+        estudiante.setNota3(90.75);
 
-        EstudianteReporte reporte = new ReporteEstudianteProcessor().process(e);
+        Estudiante resultado = new EstudianteProcessor().process(estudiante);
 
-        assertEquals("REPROBADO", reporte.getEstado());
+        assertEquals(80.5, resultado.getPromedio(), 0.0001);
+    }
+
+    @Test
+    void throwsExceptionWhenStudentIsNull() {
+        assertThrows(NullPointerException.class, () -> new EstudianteProcessor().process(null));
     }
 }

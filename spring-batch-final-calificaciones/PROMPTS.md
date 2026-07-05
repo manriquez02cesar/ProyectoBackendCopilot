@@ -68,5 +68,21 @@ mongodb://root:root123@localhost:27018/academia?authSource=admin.
 Como se puede observar en la imagen, Copilot nos genera el archivo application.properties pero hay algunos datos que no puede adivinar copilot y son unicos como el puerto de MongoDB
 
 
+## TESTS
+### PROMPT:
+`/tests`
+![img_11.png](img_11.png)
+Validando los tests generados por Copilot, nos damos cuenta que cumple con los requerimientos solicitados, ya que genera los tests para las clases EstudianteProcessorTest y ReporteEstudianteProcessorTest, además de generar los métodos de prueba para cada clase.
+
+## TESTS CON MOCKITO
+### PROMPT:
+` Genera una prueba unitaria de EstudianteService con Mockito: mockea EstudianteRepository con
+@Mock, inyecta el servicio con @InjectMocks, usa @ExtendWith(MockitoExtension.class), simula findAll()
+devolviendo 2 estudiantes aprobados y 1 reprobado, y verifica que contarAprobados() devuelve 2.
+`
+![img_12.png](img_12.png)
+Validando los tests generados por Copilot, nos damos cuenta que cumple con los requerimientos solicitados, ya que genera la prueba unitaria de EstudianteService con Mockito, mockeando EstudianteRepository, inyectando el servicio y simulando findAll() devolviendo 2 estudiantes aprobados y 1 reprobado, y verificando que contarAprobados() devuelve 2.
+
+
 
 
